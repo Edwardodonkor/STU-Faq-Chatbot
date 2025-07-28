@@ -1,0 +1,113 @@
+/* Reset + font */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background: linear-gradient(to right, #e0f2f1, #e8f5e9);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  /* Main box */
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .login-box {
+    background-color: #fff;
+    padding: 3rem;
+    border-radius: 1rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  /* Icon at top */
+  .icon-circle {
+    background-color: #4caf50;
+    color: white;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Header */
+  .login-box h2 {
+    color: #2e7d32;
+    margin-bottom: 0.3rem;
+  }
+  
+  .subtitle {
+    color: #555;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+  }
+  
+  /* Input groups */
+  .input-group {
+    display: flex;
+    align-items: center;
+    background-color: #f1f8e9;
+    padding: 0.75rem 1rem;
+    border-radius: 30px;
+    margin-bottom: 1rem;
+    border: 1px solid #c8e6c9;
+  }
+  
+  .input-group i {
+    color: #388e3c;
+    margin-right: 0.75rem;
+  }
+  
+  .input-group input {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  /* Button */
+  button {
+    background: linear-gradient(to right, #43a047, #388e3c);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  button:hover {
+    background: linear-gradient(to right, #2e7d32, #1b5e20);
+  }
+  
+  /* Version info */
+  .version-info {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: #777;
+  }
+  

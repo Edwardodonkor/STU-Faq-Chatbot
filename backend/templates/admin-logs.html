@@ -1,0 +1,36 @@
+<!-- admin-logs.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Conversation Logs</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="admin-dashboard.html">Admin Dashboard</a>
+      <button class="btn btn-danger ms-auto">Logout</button>
+    </div>
+  </nav>
+
+  <div class="container my-5">
+    <h3>Conversation Logs</h3>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>User Query</th>
+          <th>Bot Response</th>
+          <th>Timestamp</th>
+        </tr>
+      </thead>
+      <tbody id="logsTable">
+        <!-- Log rows will populate here -->
+      </tbody>
+    </table>
+  </div>
+  <script src="js/logs.js"></script>
+</body>
+</html>
