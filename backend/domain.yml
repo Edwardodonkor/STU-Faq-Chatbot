@@ -1,0 +1,160 @@
+version: "3.1"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - thanks
+  - bot_challenge
+  - inquire_about_university
+  - inquire_academic_programs
+  - inquire_program_type
+  - inquire_admission_requirements
+  - inquire_application_procedure
+  - inquire_admission_deadline
+  - inquire_specific_program_info
+  - inquire_campus_facilities
+  - inquire_student_services
+  - inquire_student_life
+  - inquire_contact_info
+  - inquire_news_events
+  - provide_feedback
+  - out_of_scope
+
+entities:
+  - program_type
+  - program_name
+  - facility_name
+  - contact_type
+
+slots:
+  program_type:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: program_type
+      
+  program_name:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: program_name
+      
+  facility_name:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: facility_name
+      
+  contact_type:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: contact_type
+
+responses:
+  utter_greet:
+    - text: "Hello! Welcome to Sunyani Technical University. How can I assist you today?"
+    - text: "Hi there! I'm your STU virtual assistant. What information are you looking for?"
+
+  utter_goodbye:
+    - text: "Goodbye! Have a great day."
+    - text: "See you later! Feel free to ask if you have more questions."
+    - text: "Bye! All the best."
+
+  utter_affirm:
+    - text: "Great!"
+    - text: "Understood."
+    - text: "Okay."
+
+  utter_deny:
+    - text: "No worries."
+    - text: "Alright."
+    - text: "Is there anything else I can help you with?"
+
+  utter_thanks:
+    - text: "You're welcome!"
+    - text: "My pleasure."
+    - text: "Glad I could help."
+
+  utter_iamabot:
+    - text: "I am a bot, an AI assistant for Sunyani Technical University. I'm here to provide information and answer your questions."
+
+  utter_inquire_about_university:
+    - text: "Sunyani Technical University (STU) is a public tertiary institution in Ghana. It's located in Sunyani, the capital of the Bono Region. STU aims to be a leading applied science and technology university. You can find more about our history and mission on our website: https://stu.edu.gh/about-us"
+
+  utter_inquire_academic_programs:
+    - text: "Sunyani Technical University offers a wide range of programs across various faculties including Engineering, Applied Science and Technology, Built Environment, and Business and Management Studies. These include HND, B.Tech, and Diploma programs. For a detailed list, please visit the Academics page on the university website."
+
+  utter_inquire_program_type:
+    - text: "We offer various program types including HND, B.Tech, and Diploma programs. What program type are you interested in?"
+
+  utter_inquire_admission_requirements:
+    - text: "Admission requirements vary by program. Generally, applicants need WASSCE/SSSCE credits in core subjects (English, Mathematics, Integrated Science) and relevant elective subjects. Please check the official STU website for detailed requirements for your specific program of interest."
+
+  utter_inquire_application_procedure:
+    - text: "To apply, you need to purchase an application form, fill it out, and submit it with the required documents before the deadline. The process is outlined in detail on the university's official admissions page. We recommend following the steps there for a smooth application."
+
+  utter_inquire_admission_deadline:
+    - text: "Application deadlines for Sunyani Technical University are announced annually. Please visit the official university website's admissions section for the most current deadlines. We advise you to apply early to avoid any last-minute issues."
+
+  utter_inquire_specific_program_info:
+    - text: "Could you please specify the program you are interested in? For example, 'Electrical Engineering' or 'Computer Science'."
+
+  utter_inquire_campus_facilities:
+    - text: "STU provides several facilities for students, including a well-stocked library, modern computer labs, student hostels, sports facilities, and a clinic. We are committed to providing a conducive learning environment for all students."
+
+  utter_inquire_student_services:
+    - text: "We offer various student services such as academic counseling, career guidance, health services, and student welfare support. The Students Affairs and Counseling Unit is available to assist you."
+
+  utter_inquire_student_life:
+    - text: "Student life at STU is vibrant and engaging. There are numerous student clubs, associations, and extracurricular activities you can join to enhance your university experience."
+
+  utter_inquire_contact_info:
+    - text: "You can contact Sunyani Technical University through the main office, or find specific department contact details on our website. The address is Sunyani, Bono Region, Ghana. The website also has a 'Contact Us' page for inquiries."
+
+  utter_inquire_news_events:
+    - text: "For the latest news and upcoming events at STU, please visit the 'News' section on our official website: https://stu.edu.gh/news. This is where you'll find announcements about congregations, seminars, and other important events."
+
+  utter_provide_feedback:
+    - text: "Thank you for your feedback! You can provide suggestions or comments via the 'Contact Us' page on the STU website, or by sending an email to info@stu.edu.gh. Your input helps us improve."
+
+  utter_out_of_scope:
+    - text: "I'm sorry, I can only provide information related to Sunyani Technical University. Is there anything else about STU I can help you with?"
+    - text: "That's outside my scope. I am here to assist with STU-related queries."
+  
+  utter_default:
+    - text: "I'm not sure how to answer that. Could you please rephrase your question?"
+    - text: "I am still learning and don't understand that. Please ask me about STU."
+
+actions:
+  - utter_greet
+  - utter_goodbye
+  - utter_affirm
+  - utter_deny
+  - utter_thanks
+  - utter_iamabot
+  - utter_inquire_about_university
+  - utter_inquire_academic_programs
+  - utter_inquire_program_type
+  - utter_inquire_admission_requirements
+  - utter_inquire_application_procedure
+  - utter_inquire_admission_deadline
+  - utter_inquire_specific_program_info
+  - utter_inquire_campus_facilities
+  - utter_inquire_student_services
+  - utter_inquire_student_life
+  - utter_inquire_contact_info
+  - utter_inquire_news_events
+  - utter_provide_feedback
+  - utter_out_of_scope
+  - utter_default

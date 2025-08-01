@@ -1,0 +1,36 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-facility_name",
+      "2": "I-facility_name",
+      "3": "L-facility_name",
+      "4": "U-facility_name",
+      "5": "B-program_name",
+      "6": "I-program_name",
+      "7": "L-program_name",
+      "8": "U-program_name",
+      "9": "B-program_type",
+      "10": "I-program_type",
+      "11": "L-program_type",
+      "12": "U-program_type",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-facility_name": 1,
+      "I-facility_name": 2,
+      "L-facility_name": 3,
+      "U-facility_name": 4,
+      "B-program_name": 5,
+      "I-program_name": 6,
+      "L-program_name": 7,
+      "U-program_name": 8,
+      "B-program_type": 9,
+      "I-program_type": 10,
+      "L-program_type": 11,
+      "U-program_type": 12,
+      "O": 0
+    },
+    "num_tags": 13
+  }
+]

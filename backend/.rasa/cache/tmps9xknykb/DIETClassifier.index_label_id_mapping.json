@@ -1,0 +1,22 @@
+{
+  "0": "affirm",
+  "1": "bot_challenge",
+  "2": "deny",
+  "3": "goodbye",
+  "4": "greet",
+  "5": "inquire_about_university",
+  "6": "inquire_academic_programs",
+  "7": "inquire_admission_deadline",
+  "8": "inquire_admission_requirements",
+  "9": "inquire_application_procedure",
+  "10": "inquire_campus_facilities",
+  "11": "inquire_contact_info",
+  "12": "inquire_news_events",
+  "13": "inquire_program_type",
+  "14": "inquire_specific_program_info",
+  "15": "inquire_student_life",
+  "16": "inquire_student_services",
+  "17": "out_of_scope",
+  "18": "provide_feedback",
+  "19": "thanks"
+}
