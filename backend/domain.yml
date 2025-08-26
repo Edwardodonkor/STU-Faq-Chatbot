@@ -1,160 +1,160 @@
-version: "3.1"
+# version: "3.1"
 
-session_config:
-  session_expiration_time: 60
-  carry_over_slots_to_new_session: true
+# intents:
+#   - greet
+#   - goodbye
+#   - vice_chancellor
+#   - location
+#   - academic_programs
+#   - fees
+
+# responses:
+#   utter_greet:
+#     - text: "Hello! good day"
+#     - text: "Hi, I am your STU bot. How can I help you?"
+#     - text: "Hey! what's up."
+
+#   utter_goodbye:
+#     - text: "It was nice helping you."
+#     - text: "Have a wonderful day"
+
+#   utter_vice_chancellor:
+#     - text: "The vice chancellor for STU is Professor Ing. Kwadwo Adinkrah-Appiah."
+
+#   utter_location:
+#     - text: "Sunyani Technical University is located along the Sunyani-Kumasi Highway, opposite the Bono Regional House of Chiefs, Sunyani, Bono Region, Ghana."
+
+#   utter_academic_programs:
+#     - text: "The school have a wide range of academic programs ranging from Masters,Degree,HND,Diploma,Professional,Craft and Proficiency Certificate programs. You can visit the school's website for more details."
+
+#   utter_fees:
+#     - text: "The fees or Sunyani Technical University differs by program and changes after every academic year."
+
+version: "3.1"
 
 intents:
   - greet
   - goodbye
-  - affirm
-  - deny
-  - thanks
-  - bot_challenge
-  - inquire_about_university
-  - inquire_academic_programs
-  - inquire_program_type
-  - inquire_admission_requirements
-  - inquire_application_procedure
-  - inquire_admission_deadline
-  - inquire_specific_program_info
-  - inquire_campus_facilities
-  - inquire_student_services
-  - inquire_student_life
-  - inquire_contact_info
-  - inquire_news_events
-  - provide_feedback
-  - out_of_scope
-
-entities:
-  - program_type
-  - program_name
-  - facility_name
-  - contact_type
-
-slots:
-  program_type:
-    type: text
-    influence_conversation: true
-    mappings:
-    - type: from_entity
-      entity: program_type
-      
-  program_name:
-    type: text
-    influence_conversation: true
-    mappings:
-    - type: from_entity
-      entity: program_name
-      
-  facility_name:
-    type: text
-    influence_conversation: true
-    mappings:
-    - type: from_entity
-      entity: facility_name
-      
-  contact_type:
-    type: text
-    influence_conversation: true
-    mappings:
-    - type: from_entity
-      entity: contact_type
+  - vice_chancellor
+  - location
+  - academic_programs
+  - fees
+  - faculties
+  - facilities
+  - hostels
+  - health_service
+  - mission
+  - vision
+  - core_values
+  - student_politics
+  - calendar
+  - it_support
+  - registration_course
+  - library
+  - student_life
+  - finance
+  - partnership
+  - alumni
+  - contact
+  - grade_system
+  - class_of_program
+  - transcript
+  - courses
+  
 
 responses:
   utter_greet:
-    - text: "Hello! Welcome to Sunyani Technical University. How can I assist you today?"
-    - text: "Hi there! I'm your STU virtual assistant. What information are you looking for?"
+    - text: "Hello! good day"
+    - text: "Hi, I am your STU bot. How can I help you?"
+    - text: "Hey! what's up."
 
   utter_goodbye:
-    - text: "Goodbye! Have a great day."
-    - text: "See you later! Feel free to ask if you have more questions."
-    - text: "Bye! All the best."
+    - text: "It was nice helping you."
+    - text: "Have a wonderful day"
 
-  utter_affirm:
-    - text: "Great!"
-    - text: "Understood."
-    - text: "Okay."
+  utter_vice_chancellor:
+    - text: "The vice chancellor for STU is Professor Ing. Kwadwo Adinkrah-Appiah."
 
-  utter_deny:
-    - text: "No worries."
-    - text: "Alright."
-    - text: "Is there anything else I can help you with?"
+  utter_location:
+    - text: "Sunyani Technical University is located along the Sunyani-Kumasi Highway, opposite the Bono Regional House of Chiefs, Sunyani, Bono Region, Ghana."
 
-  utter_thanks:
-    - text: "You're welcome!"
-    - text: "My pleasure."
-    - text: "Glad I could help."
+  utter_academic_programs:
+    - text: "The school offers Master's, Degree, HND, Diploma, Professional, Craft,and Proficiency Certificate programs. Visit the school's website for more details."
 
-  utter_iamabot:
-    - text: "I am a bot, an AI assistant for Sunyani Technical University. I'm here to provide information and answer your questions."
+  utter_fees:
+    - text: "The fees at Sunyani Technical University vary by program and student status (domestic or international). It is also revised each academic year."
 
-  utter_inquire_about_university:
-    - text: "Sunyani Technical University (STU) is a public tertiary institution in Ghana. It's located in Sunyani, the capital of the Bono Region. STU aims to be a leading applied science and technology university. You can find more about our history and mission on our website: https://stu.edu.gh/about-us"
+  utter_faculties:
+    - text: "The school has four faculties: the Faculty of Engineering (FoE), the Faculty of Built Environment and Applied Arts (FBEAA), the Faculty of Applied Science and Technology (FAST), and the Faculty of Business and Management Studies (FBMS)."
 
-  utter_inquire_academic_programs:
-    - text: "Sunyani Technical University offers a wide range of programs across various faculties including Engineering, Applied Science and Technology, Built Environment, and Business and Management Studies. These include HND, B.Tech, and Diploma programs. For a detailed list, please visit the Academics page on the university website."
+  utter_facilities:
+    - text: "The university offers a range of facilities on campus, including hostels, a clinic, computer laboratories, a library, and well-equipped sports grounds."
+    - text: "The campus provides facilities such as hostels, a clinic, a computer lab, a library, and sports grounds."
+    - text: "Campus facilities include hostels, a clinic, computer labs, a library, and sports grounds."
 
-  utter_inquire_program_type:
-    - text: "We offer various program types including HND, B.Tech, and Diploma programs. What program type are you interested in?"
+  utter_hostels:
+    - text: "The hostels on campus include Tano Hall, which is an all-female hall; Busia Hall, a mixed hall; Cocoa Hall, also a mixed hall; and the GETFund Hostel."
+    - text: "Campus accommodation facilities comprise Tano Hall, designated as an all-female hall; Busia Hall and Cocoa Hall, which are mixed halls; and the GETFund Hostel."
+    - text: "Students are housed in Tano Hall for females only, Busia Hall and Cocoa Hall for both male and female students, and the GETFund Hostel."
+    - text: "The hostels on campus are Tano Hall (all-female), Busia Hall (mixed), Cocoa Hall (mixed), and the GETFund Hostel."
 
-  utter_inquire_admission_requirements:
-    - text: "Admission requirements vary by program. Generally, applicants need WASSCE/SSSCE credits in core subjects (English, Mathematics, Integrated Science) and relevant elective subjects. Please check the official STU website for detailed requirements for your specific program of interest."
+  utter_health_service:
+    - text: "There is a clinic to cater for the minor and primary health care of students. The University clinic may refer difficult cases and emergencies to the Regional hospital, Sunyani."
 
-  utter_inquire_application_procedure:
-    - text: "To apply, you need to purchase an application form, fill it out, and submit it with the required documents before the deadline. The process is outlined in detail on the university's official admissions page. We recommend following the steps there for a smooth application."
+  utter_mission:
+    - text: "The mission of STU is to advance in industrial and socio-economic transformation by providing career-focused education and training with emphasis on practical-orientation and entrepreneurial development; through skilled and dedicated staff, effective teaching and learning methodologies, applied research, invention, innovation and extension services; in an enabling environment."
 
-  utter_inquire_admission_deadline:
-    - text: "Application deadlines for Sunyani Technical University are announced annually. Please visit the official university website's admissions section for the most current deadlines. We advise you to apply early to avoid any last-minute issues."
+  utter_vision:
+    - text: "To be the preferred Technical University in emerging technologies for raising the next generation of industry captains for national, regional and global transformation."
 
-  utter_inquire_specific_program_info:
-    - text: "Could you please specify the program you are interested in? For example, 'Electrical Engineering' or 'Computer Science'."
+  utter_core_values:
+    - text: "In the pursuit of its mission and vision, STU will be guided by the following core values: Excellence, Competence, Competitiveness, Responsiveness, Professionalism, and  Integrity."
 
-  utter_inquire_campus_facilities:
-    - text: "STU provides several facilities for students, including a well-stocked library, modern computer labs, student hostels, sports facilities, and a clinic. We are committed to providing a conducive learning environment for all students."
+  utter_student_politics:
+    - text: "The two main political associations available for student participation on campus are TEIN (Tertiary Education Institutions Network) and TESCON (Tertiary Students Confederacy)."
+    - text: "On campus, students can join and participate in two political groups: TEIN and TESCON."
+    - text: "Students on campus have the opportunity to engage in political activities through TEIN and TESCON."
 
-  utter_inquire_student_services:
-    - text: "We offer various student services such as academic counseling, career guidance, health services, and student welfare support. The Students Affairs and Counseling Unit is available to assist you."
+  utter_calendar:
+    - text: "The academic calendar with all important dates, including semester start/end dates, holidays, and exam periods, is made available on the school's notice board at the start of the sem."
 
-  utter_inquire_student_life:
-    - text: "Student life at STU is vibrant and engaging. There are numerous student clubs, associations, and extracurricular activities you can join to enhance your university experience."
+  utter_it_support:
+    - text: "There is an IT center which provides all technical support and any IT related stuffs on campus."
 
-  utter_inquire_contact_info:
-    - text: "You can contact Sunyani Technical University through the main office, or find specific department contact details on our website. The address is Sunyani, Bono Region, Ghana. The website also has a 'Contact Us' page for inquiries."
+  utter_registration_course:
+    - text: "Students must pay more than half of their fees in the first semester in order to be eligible to register for their courses, and full payment is required before they can register for courses in the second semester. All course registrations are handled online through the school portal"
 
-  utter_inquire_news_events:
-    - text: "For the latest news and upcoming events at STU, please visit the 'News' section on our official website: https://stu.edu.gh/news. This is where you'll find announcements about congregations, seminars, and other important events."
+  utter_library:
+    - text: "The university library opens from 9am to 8pm on weekdays and has limited hours on weekends."
 
-  utter_provide_feedback:
-    - text: "Thank you for your feedback! You can provide suggestions or comments via the 'Contact Us' page on the STU website, or by sending an email to info@stu.edu.gh. Your input helps us improve."
+  utter_student_life:
+    - text: "Student life on campus is vibrant and engaging. We have over a few student clubs and organizations covering a wide range of interests, from academics to sports."
 
-  utter_out_of_scope:
-    - text: "I'm sorry, I can only provide information related to Sunyani Technical University. Is there anything else about STU I can help you with?"
-    - text: "That's outside my scope. I am here to assist with STU-related queries."
-  
-  utter_default:
-    - text: "I'm not sure how to answer that. Could you please rephrase your question?"
-    - text: "I am still learning and don't understand that. Please ask me about STU."
+  utter_finance:
+    - text: "Yes, we offer various forms of financial aid, including scholarships, grants, and student loans."
 
-actions:
-  - utter_greet
-  - utter_goodbye
-  - utter_affirm
-  - utter_deny
-  - utter_thanks
-  - utter_iamabot
-  - utter_inquire_about_university
-  - utter_inquire_academic_programs
-  - utter_inquire_program_type
-  - utter_inquire_admission_requirements
-  - utter_inquire_application_procedure
-  - utter_inquire_admission_deadline
-  - utter_inquire_specific_program_info
-  - utter_inquire_campus_facilities
-  - utter_inquire_student_services
-  - utter_inquire_student_life
-  - utter_inquire_contact_info
-  - utter_inquire_news_events
-  - utter_provide_feedback
-  - utter_out_of_scope
-  - utter_default
+  utter_partnership:
+    - text: "The school is in partnership with Armed Forces Engineer Training School, Teshie, Accra."
+
+  utter_alumni:
+    - text: "The alumni network, comprising more than 7,000 registered members, supports graduates by offering career guidance, facilitating networking events, and granting access to university resources."
+    - text: "With over 7,000 registered alumni, the alumni network provides a range of services, including career guidance, networking opportunities, and access to university resources."
+
+  utter_contact:
+    - text: "You can reach out to STU by dailing 0352023278/0352027052 or my sending a mail to enquiries@stu.edu.gh"
+
+  utter_grade_system:
+    - text: "Our grading system is as follows: A+ (85+ marks, 5.0), A (80-84 marks, 4.5), B+ (75-79 marks, 4.0), B (70-74 marks, 3.5), C+ (65-69 marks, 3.0), C (60-64 marks, 2.5), D+ (55-59 marks, 2.0), D (50-54 marks, 1.5), and F (0-49 marks, 0)."
+
+  utter_class_of_program:
+    - text: "Our degree classification is based on FCGPA: 4.0-5.0 is excellent/distinction, corresponding to a 1st class; 3.0-3.99 is good, a 2nd class upper; 2.0-2.99 is fairly good, a 2nd class lower; 1.5-1.99 is satisfactory, a Pass; and below 1.50 is unsatisfactory, a Fail."
+
+  utter_transcript:
+    - text: "To obtain a transcript, you must first pick up a form from your department. Afterward, pay a processing fee of 50 cedis. A receipt will be issued to you upon payment, which should be attached to the form and submitted to the Registrar’s Office, where the transcript will be processed."
+    - text: "If you need a transcript, collect a form from your department, pay the 50 cedis processing fee, and attach the receipt to the completed form. Submit everything to the Registrar’s Office for processing."
+    - text: "Students requesting transcripts are required to obtain a form from their department, pay a processing fee of 50 cedis, and attach the official receipt to the completed form. The documents must then be submitted to the Registrar’s Office for processing."
+
+  utter_courses:
+    - text: "STU offers a total of 11 graduate programs, 30 undergraduate programs, 22 HND programs, and 8 professional programs. You can visit [this link](https://stu.edu.gh/admissions#adminreq) to learn more about the programs and their requirements."
+    - text: "Sunyani Technical University provides 11 graduate, 30 undergraduate, 22 HND, and 8 professional programs. More details about these programs and their admission requirements can be found [here](https://stu.edu.gh/admissions#adminreq)."
+    - text: "STU currently runs 11 graduate programs, 30 undergraduate programs, 22 HND programs, and 8 professional courses. For a full list of programs and their entry requirements, kindly visit [this page](https://stu.edu.gh/admissions#adminreq)."

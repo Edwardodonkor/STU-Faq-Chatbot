@@ -125,6 +125,42 @@ async function handleSendMessage() {
 /**
  * Append a message to the chat
  */
+// function appendMessage(sender, text, isTemporary = false) {
+    // Hide welcome message on first message
+    // if (initialWelcome && initialWelcome.style.display !== 'none') {
+    //     initialWelcome.style.display = 'none';
+    // }
+
+    // const messageDiv = document.createElement('div');
+    // messageDiv.classList.add('message-bubble');
+
+    // if (isTemporary) {
+    //     messageDiv.classList.add('temp-message');
+    // } else {
+    //     messageDiv.classList.add(sender + '-message');
+    // }
+
+    // messageDiv.textContent = text;
+
+    // chatMessages.appendChild(messageDiv);
+
+    // Scroll to bottom
+//     setTimeout(() => {
+//         chatMessages.scrollTop = chatMessages.scrollHeight;
+//     }, 100);
+
+//     // Remove temporary messages after animation
+//     if (isTemporary) {
+//         setTimeout(() => {
+//             if (messageDiv.parentNode) {
+//                 messageDiv.remove();
+//             }
+//         }, 3000);
+//     }
+
+//     return messageDiv;
+// }
+
 function appendMessage(sender, text, isTemporary = false) {
     // Hide welcome message on first message
     if (initialWelcome && initialWelcome.style.display !== 'none') {
@@ -140,7 +176,7 @@ function appendMessage(sender, text, isTemporary = false) {
         messageDiv.classList.add(sender + '-message');
     }
 
-    messageDiv.textContent = text;
+    messageDiv.innerHTML = formatMultilineText(text); // ✅ updated here
 
     chatMessages.appendChild(messageDiv);
 
@@ -160,6 +196,41 @@ function appendMessage(sender, text, isTemporary = false) {
 
     return messageDiv;
 }
+
+// function formatMultilineText(text) {
+//     return text
+//         .split('\n')
+//         .map(line => {
+//             if (line.trim().startsWith('- ')) {
+//                 return '&nbsp;&nbsp;&bull;&nbsp;' + line.trim().substring(2);
+//             }
+//             return line;
+//         })
+//         .join('<br>');
+// }
+
+function formatMultilineText(text) {
+    const markdownLinkRegex = /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g;
+
+    return text
+        .split('\n')
+        .map(line => {
+            // Handle bullet points
+            if (line.trim().startsWith('- ')) {
+                line = '&nbsp;&nbsp;&bull;&nbsp;' + line.trim().substring(2);
+            }
+
+            // Replace ONLY markdown [text](url) with an anchor tag
+            line = line.replace(markdownLinkRegex, (match, text, url) => {
+                return `<a href="${url}" target="_blank" rel="noopener noreferrer">${text}</a>`;
+            });
+
+            return line;
+        })
+        .join('<br>');
+}
+
+
 
 /**
  * Play audio from a given URL

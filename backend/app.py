@@ -77,7 +77,7 @@ def chat():
 
             # Generate TTS audio for the bot's response
             try:
-                tts = gTTS(text=bot_response_text, lang='en', slow=False)
+                tts = gTTS(text=bot_response_text, lang='en', slow=False, tld='com')
                 audio_filename = f"bot_response_{datetime.now().strftime('%Y%m%d%H%M%S%f')}.mp3"
                 audio_path = os.path.join(AUDIO_FOLDER, audio_filename)
                 tts.save(audio_path)
