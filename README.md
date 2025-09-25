@@ -72,6 +72,7 @@ python app.py
 - Amoh George
 - Raynolds Boateng
 - Kusi Williams
+  
 Final Year Project, 2025
 Sunyani Technical University
 ```bash
