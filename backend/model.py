@@ -1,6 +1,13 @@
 # models.py
 from peewee import *
+from flask import Flask
 from datetime import datetime
+from flask_login import UserMixin, LoginManager
+
+
+# app = Flask(__name__)
+
+# login_manager = LoginManager()
 
 # Define the database connection
 # Using SqliteDatabase for simplicity. It will create 'chatbot_logs.db' file.
@@ -10,6 +17,24 @@ class BaseModel(Model):
     """A base model that will use our Postgresql database."""
     class Meta:
         database = db
+
+# @login_manager.user_loader
+# def load_user(user_id):
+#     try:
+#         user = User.get_by_id(user_id)
+#         return user
+#     except DoesNotExist:
+#         pass
+#     return None
+
+class User(BaseModel,UserMixin):
+    username = CharField()
+    password = CharField()
+    full_name = CharField()
+    roll = IntegerField(default=111)
+
+    class Meta:
+        table_name = 'user'
 
 class ChatLog(BaseModel):
     """
@@ -37,7 +62,7 @@ class ChartData(BaseModel):
 # Function to initialize the database and create tables
 def initialize_db():
     db.connect()
-    db.create_tables([ChatLog, ChartData])
+    db.create_tables([ChatLog, ChartData,User])
     db.close()
 
 if __name__ == '__main__':

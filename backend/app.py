@@ -1,13 +1,19 @@
 # app.py
-from flask import Flask, request, jsonify, send_from_directory, render_template, url_for
+from flask import Flask, request, jsonify, send_from_directory, render_template, url_for, request, redirect, flash, session
+from werkzeug.security import check_password_hash
+from playhouse.flask_utils import object_list
 from datetime import datetime
 import requests
 import os
 from gtts import gTTS # Google Text-to-Speech library
-from model import db, ChatLog, ChartData, initialize_db # Import Peewee models and init function
+from model import db, ChatLog, ChartData, initialize_db, User # Import Peewee models and init function
 
 # Initialize Flask app
 app = Flask(__name__)
+
+# login_manager = LoginManager()
+
+# login_manager.init_app(app)
 
 # --- Database Initialization ---
 # Connect to the database and create tables on app startup
@@ -25,6 +31,69 @@ if not os.path.exists(AUDIO_FOLDER):
     os.makedirs(AUDIO_FOLDER)
 
 # --- Routes ---
+# Admin Login
+from functools import wraps
+
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if 'user_id' not in session:
+            flash('You need to log in first.', 'info')
+            return redirect(url_for('admin_login'))
+        return f(*args, **kwargs)
+    return decorated_function
+
+def logout(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if 'user_id' in session:
+            session.clear()
+            flash('Logout.', 'info')
+            return redirect(url_for('admin_login'))
+        return f(*args, **kwargs)
+    return decorated_function
+
+@app.route('/admin-login', methods =['GET','POST'])
+def admin_login():
+    if 'user_id' in session:
+        return redirect(url_for('admin_dashboard'))
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        print(username,'  ' ,password)
+        user = User.get_or_none(User.username == username)
+        if user and check_password_hash(user.password, password):
+            session['user_id'] = user.id
+            session['username'] = user.username
+            session['full_name'] = user.full_name
+            session['roll'] = user.roll
+            return redirect(url_for('admin_dashboard'))
+        else:
+            flash('Invalid username or incorrect password','danger')
+    return render_template('admin-login.html')
+
+@app.route('/dashboard')
+@login_required
+def admin_dashboard():
+    unanswered = ["Sorry, the chatbot service is currently unavailable.", "Sorry, I couldn't get a response from the bot."]
+    total_questions = ChatLog.select().count()
+    unanswered_questions = ChatLog.select().where(ChatLog.bot_response.contains('Sorry, the chatbot service is currently unavailable.') or ChatLog.bot_response.contains("Sorry, I couldn't get a response from the bot.")).count()
+    answered_questions = ChatLog.select().where(ChatLog.bot_response.not_in(unanswered)).count()
+
+    return render_template('admin-dashboard.html', answered_questions = answered_questions,total_questions = total_questions, unanswered_questions = unanswered_questions)
+
+
+@app.route('/admin/chatlogs')
+@login_required
+def chat_logs():
+    chatlogs = ChatLog.select()
+    return render_template('chatlogs.html', chatlogs = chatlogs)
+
+
+@app.route('/logout')
+@logout
+def admin_logout():
+    return redirect(url_for('admin_login'))
 
 # Serve static files (HTML, CSS, JS)
 @app.route('/')
@@ -122,4 +191,5 @@ if __name__ == '__main__':
     # Ensure the static/audio directory exists
     if not os.path.exists(AUDIO_FOLDER):
         os.makedirs(AUDIO_FOLDER)
+    app.secret_key = 'Lc6AI3fIZpFUrJjWE33'
     app.run(debug=True, port=5000) # Run on port 5000
