@@ -14,7 +14,7 @@ It provides instant responses, logs unanswered queries for admin review, and inc
 
 ---
 
-## 🛠️ Tools & Technologies
+## Tools & Technologies
 **Frontend**  
 - HTML, CSS, Bootstrap 5  
 - JavaScript  
@@ -46,8 +46,8 @@ It provides instant responses, logs unanswered queries for admin review, and inc
 python -m venv venv
 
 # Activate environment
-source venv/bin/activate   # For Linux/Mac
-venv\Scripts\activate      # For Windows
+- source venv/bin/activate   # For Linux/Mac
+- venv\Scripts\activate      # For Windows
 
 # Install dependencies
 pip install -r requirements.txt
@@ -60,7 +60,7 @@ pip install -r requirements.txt
 #Train RASA
 rasa train
 
-##Rub the app
+##Run the app
 # Start Rasa server
 rasa run -m models --enable-api --cors "*"
 
